@@ -8,7 +8,8 @@
     <!--Link to Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/style.css">
+    <!--Link to "modifying" style sheet-->
+    <link rel="stylesheet" href="assets/style.css">
     <title>Word guessing game</title>
 </head>
 
@@ -18,15 +19,87 @@
         <!--Tittle of the game-->
         <div class="row">
             <div class="col-12">
-                    <h1 class="desing-text">Word guessing game</h1>
-                    <p class="desing-text">Desingers edition</p>
+                <h1 class="align-text">Word guessing game</h1>
+                <p class="align-text">Desingers edition</p>
             </div>
         </div>
-         
+
+        <div class="row">
+
+            <!--Adding a colum before so is allign in the center-->
+            <div class="col-3"></div>
+
+            <!--Image colum-->
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://images.unsplash.com/photo-1560525555-e40c2614e9a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1275&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                    </div>
+                </div>
+            </div>
+
+            <!--Inside rows-->
+            <div class="col-3">
+                <!--1st text: Press any key-->
+                <div class="col-12">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title align-text">Welcome to our game</h5>
+                            <h6 class="card-subtitle mb-2 text-muted align-text">Press any key to start</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Word to guess-->
+                <div class="col-12">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title align-text">Current word</h5>
+                            <h6 id="wordGuess" class="card-subtitle mb-2 text-muted align-text"> ? </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Guess remaining-->
+                <div class="col-12">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title align-text">Number of guess remaining</h5>
+                            <h6 id="wordGuess" class="card-subtitle mb-2 text-muted align-text"> ? </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Letters already used-->
+                <div class="col-12">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title align-text">Letters already used</h5>
+                            <h6 id="wordGuess" class="card-subtitle mb-2 text-muted align-text"> ? </h6>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
 
 
     </div>
-    
+
     <hr>
 
     <div id=""></div>
