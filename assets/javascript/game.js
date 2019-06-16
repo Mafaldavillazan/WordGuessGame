@@ -18,8 +18,27 @@ $(document).ready(function () {
         var arrNum = Math.floor(Math.random() * desingers.length)
         //Relate that number with a person inside our array
         var computerSelection = desingers[arrNum];
+
+        //Create a function theat showcase the - for each letter
+
+        function lineDisplay(randomSelection){
+            
+            for (var i = 0; i < randomSelection.length; i++){
+                if(randomSelection[i]!== " "){
+                    console.log(randomSelection[i]);
+                    $("#wordGuess").append(" _ ");
+                }
+                else{
+                    $("#wordGuess").append("  ");
+                }
+            }
+
+        }
+
+        lineDisplay(computerSelection);
+
         //Write what computer selected on the screen
-        $("#wordGuess").append(computerSelection);
+        //$("#wordGuess").append(computerSelection);
         //Add _ multiply by the number of letters
 
 
