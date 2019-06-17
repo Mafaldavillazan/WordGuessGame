@@ -9,6 +9,22 @@ $(document).ready(function () {
         "Paul Rand"
     ]
 
+    //Creating a variable with the amount of guesses the user has
+    var guessLeft = 20;
+    $("#guessesRemain").text(guessLeft);
+
+
+    //Creating a variable with the amount of wins
+    var wins = 0;
+
+    var secretPoints = 0;
+    $("#wins").text(wins);
+
+
+    //Create a function that will add points if the word is completed ( maybe )
+
+
+
 
     //when press stat the game begins and the function of random selection starts running
     $("#start").click(function (event) {
@@ -19,7 +35,6 @@ $(document).ready(function () {
         var computerSelection = desingers[arrNum];
 
 
-
         //Create a function theat showcase the - for each letter of the name selected
         function lineDisplay(randomSelection) {
 
@@ -28,25 +43,35 @@ $(document).ready(function () {
                 if (randomSelection[i] === " ") {
                     // Add space into HTML (search the solution on google with meetup team)
                     $("#wordGuess").append("&nbsp;");
+                    // when they win I add a point to the secret selection
+                    secretPoints++
                 }
                 else {
                     $("#wordGuess").append(" _ ");
                 }
+
+                //I compare the lenght of the word selected with the numer of points the aquire whrn they win
+                if (computerSelection.length === secretPoints) {
+                    alert("YOU WON!")
+                    wins++
+
+                }
+                else {
+                    var guessCompleted = randomSelection.length - secretPoints
+                    console.log("Guesses " + guessCompleted);
+
+                };
             }
 
+
+
         }
-        //I run the function on the selected index of the array
+        //Function that will change the - to letters 
         lineDisplay(computerSelection);
 
-        //Function that will change the - to letters 
-
-
-        //Adding the score of wins
 
 
 
-        var guessLeft=20
-        $("#guessesRemain").text(guessLeft);
 
 
         //Checking the letters inside the string selected
@@ -59,8 +84,13 @@ $(document).ready(function () {
                 //creating an if that runs through all of the letters of the selected index and compares it with the letter selected
                 if (selection === letterArray.toLowerCase()) {
                     alert("RIGHT!")
+
+                    //Add the letter in the space of the line
+                    $("#wordGuessAdd").append(selection);
+                    console.log(selection);
+
                     //If they have it right they dont loose guesses
-                    guessLeft = guessLeft+1;
+                    guessLeft++;
                     $("#guessesRemain").text(guessLeft);
                     console.log(guessLeft);
                 }
@@ -77,9 +107,9 @@ $(document).ready(function () {
             //Showcase the letter you pressed in the key
             var letterSelected = event.key;
             //Adding the letter press to the bottom of the page
-            $("#letterUsed").append(letterSelected + ", ");
+            $("#letterUsed").append(letterSelected.toUpperCase() + ", ");
 
-            guessLeft = guessLeft-1;
+            guessLeft = guessLeft - 1;
             $("#guessesRemain").text(guessLeft);
             console.log(guessLeft);
 
@@ -94,7 +124,7 @@ $(document).ready(function () {
         //   alert("You already selected this Letter")
         //};
 
-        //Compare the letters from a sting to the letter selected
+        //Adding the score of wins
 
 
 
