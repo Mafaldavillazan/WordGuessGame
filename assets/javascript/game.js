@@ -29,6 +29,14 @@ $(document).ready(function () {
     //when press stat the game begins and the function of random selection starts running
     $("#start").click(function (event) {
 
+        //Change the start button to re-start
+        $(this).text("Play Again").addClass("grey")
+
+        //transform the bottom from start to refresh
+        $(this).click(function () {
+            location.reload();
+        })
+
         //Create a variable that selects a random number inside our array
         var arrNum = Math.floor(Math.random() * desingers.length)
         //Relate that number with a person inside our array
@@ -115,17 +123,17 @@ $(document).ready(function () {
 
             //Calling the function to check the letters
             checkingLetter(letterSelected);
+
+
+
+            // Stop adding letters if they have already been typed
+            //if (letterSelected == ("#letterUsed")) {
+            // alert("You already selected this Letter")
+            //};
+
+
+
         });
-
-
-
-        // Stop adding letters if they have already been typed
-        //if (letterSelected == ("#letterUsed")) {
-        //   alert("You already selected this Letter")
-        //};
-
-        //Adding the score of wins
-
 
 
 
