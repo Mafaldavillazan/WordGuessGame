@@ -3,10 +3,10 @@ $(document).ready(function () {
 
     //Create the array of desingers
     var desingers = [
-        "Saul Bass",
-        "Stefan Sagmeister",
-        "Zaha Hadid",
-        "Paul Rand"
+        "saul bass",
+        "stefan sagmeister",
+        "zaha hadid",
+        "paul rand"
     ]
 
     //Creating a variable with the amount of guesses the user has
@@ -15,10 +15,23 @@ $(document).ready(function () {
 
 
     //Creating a variable with the amount of wins
-    var wins = 0;
+    var wins = 0
 
-    var secretPoints = 0;
-    $("#wins").text(wins);
+    //Create a function for the score
+    function scoreCal() {
+        //I compare the lenght of the word selected with the numer of points the aquire whrn they win
+        if (computerSelectionArrLines === computerSelectionArr) {
+            alert("YOU WON!")
+            wins++
+
+        }
+        else if (guessLeft = 0) {
+            alert("YOU LOOSE!")
+            wins++
+        };
+    }
+
+
 
     //Create an empty array that we will fill with ---
     var answerArr = [];
@@ -70,12 +83,12 @@ $(document).ready(function () {
         }
 
 
-        
+
         console.log("computerSelectionArrIndex " + computerSelectionArrIndex)
         console.log("computerSelection" + computerSelection)
 
         //Append the answer in the code so iI can change its positions
-        $("#wordGuess").append(answerArr);
+        $("#wordGuess").append(computerSelectionArrLines);
 
         //Create an array that will print the number of index of of those elements
 
@@ -83,23 +96,10 @@ $(document).ready(function () {
         //Create a function that will change those
 
 
+        computerSelectionArr = []
+        computerSelectionArr.push(computerSelection[arrNum]);
 
 
-
-
-        function scoreCal() {
-            //I compare the lenght of the word selected with the numer of points the aquire whrn they win
-            if (computerSelection.length === secretPoints) {
-                alert("YOU WON!")
-                wins++
-
-            }
-            else {
-                var guessCompleted = computerSelection.length - secretPoints
-                console.log("Guesses " + guessCompleted);
-
-            };
-        }
 
 
 
@@ -121,13 +121,10 @@ $(document).ready(function () {
 
 
                     changeLinesToLetters(selection);
+                    $("#wordGuess").text(computerSelectionArrLines);
 
                     //If they have it right they dont loose guesses
                     guessLeft = guessLeft;
-
-                    //Add the letter in that specific index of 
-                    $("#guessesRemain").text(guessLeft);
-                    console.log(guessLeft);
 
                 }
                 else {
@@ -141,13 +138,11 @@ $(document).ready(function () {
         function changeLinesToLetters(selection) {
             //create a for loop that will go through all the letters and change them to - and the space to ""
             for (var i = 0; i < computerSelection.length; i++) {
-
                 if (computerSelection[i] === selection) {
                     // Add space into HTML (search the solution on google with meetup team)
                     computerSelectionArrLines[i] = selection;
-                    $("#wordGuess").text(computerSelectionArrLines);
                 }
-    
+
             }
 
 
